@@ -6,14 +6,10 @@ import { getPumpList } from "common/api"
 import "./style.scss"
 import Detail from "./modules/list/detail"
 
-export async function getServerSideProps() {
-  const data = await getPumpList(); // Fetch data on each request
-  return {
-    props: { data }, // Pass the fetched data as props
-  };
-}
+// In the App Router, you can directly fetch data inside the component
+export default async function App() {
+  const data = await getPumpList(); // Fetch data on the server
 
-export default function App({ data }) {
   return (
     <Stack className="app" pt={7}>
       <Header />
